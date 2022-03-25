@@ -1,0 +1,25 @@
+
+	FILE *arquivo;
+	int i;
+	if((arquivo = fopen("vagas.txt", "w")) == NULL)
+	{
+		system("cls");
+		printf("\nArquivo vazio\n");
+		system("pause");
+		return 1;
+	}
+	for(i = 0; i < TAM; i++)
+	{
+	
+		// Reescrevendo o arquivo com fprintf										
+		fprintf(arquivo, "%s\n", vetor[i].cargo);
+		fprintf(arquivo, "%s\n", vetor[i].nivel);
+		fprintf(arquivo, "%c\n", vetor[i].sexo);
+		fprintf(arquivo, "%d\n", vetor[i].idmin);
+		fprintf(arquivo, "%d\n", vetor[i].idmax);
+		fprintf(arquivo, "%.2f\n", vetor[i].salario);
+		fprintf(arquivo, "%d\n", vetor[i].nvagas);
+		fputs("\n", arquivo);				
+	}							
+	fclose(arquivo);
+	return 0;
